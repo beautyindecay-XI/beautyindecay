@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>/// THE_DECAY_MANIFESTO ///</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: crosshair;
+        }
+
+        body {
+            background-color: #020202;
+            color: #4a4a4a;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+            /* Creates a massively long page for an oppressive scroll */
+            min-height: 250vh; 
+        }
+
+        /* 1. THE MOUSE FLASHLIGHT (Red glow follows cursor) */
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            background: radial-gradient(circle 250px at var(--x, 50vw) var(--y, 50vh), rgba(80, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.95) 100%);
+            z-index: 50;
+        }
+
+        /* 2. BACKGROUND STATIC */
+        .static {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        /* 3. THE TORN PAPER STRUCTURE */
+        .manifesto-core {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%) skewX(-2deg); /* Slightly tilted */
+            width: 70%;
+            max-width: 800px;
+            background: #050505;
+            border: 1px solid #1a1a1a;
+            border-left: 3px solid #4a0000;
+            padding: 50px;
+            /* Jagged cut-out shape */
+            clip-path: polygon(0% 0%, 100% 2%, 98% 99%, 1% 100%);
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #330000;
+            letter-spacing: -2px;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .rule {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .rule h2 {
+            color: #8b0000;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #330000;
+            display: inline-block;
+        }
+
+        .rule p {
+            line-height: 1.8;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* 4. CREEPY TEXT EFFECTS */
+        .redacted {
+            background-color: #111;
+            color: #111;
+            padding: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .redacted:hover {
+            background-color: #8b0000;
+            color: #000;
+        }
+
+        .tremble {
+            display: inline-block;
+            animation: tremble 0.1s infinite;
+        }
+
+        @keyframes tremble {
+            0% { transform: translate(0.5px, 0.5px); }
+            50% { transform: translate(-0.5px, -0.5px); }
+            100% { transform: translate(0.5px, -0.5px); }
+        }
+
+        /* 5. THE END OF THE ABYSS */
+        .abyss-bottom {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .abyss-bottom a {
+            color: #4a0000;
+            text-decoration: none;
+            border: 1px solid #4a0000;
+            padding: 10px 20px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            transition: 0.2s;
+        }
+
+        .abyss-bottom a:hover {
+            background: #8b0000;
+            color: #000;
+            border-color: #ff0000;
+            box-shadow: 0 0 15px #ff0000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="static"></div>
+    <div class="cursor-glow" id="glow"></div>
+
+    <div class="manifesto-core">
+        <h1>BEAUTY IN DECAY</h1>
+
+        <div class="rule">
+            <h2>01. PRESERVATION IS A LIE</h2>
+            <p>
+                We spend our lives trying to back up our data, embalm our dead, and archive our memories. It is a pathetic rebellion against the natural order. <span class="redacted">Everything rusts.</span> When you accept that the servers will one day burn, the anxiety stops. The broken link (Error 404) is not a failure. It is the internet breathing out.
+            </p>
+        </div>
+
+        <div class="rule" style="margin-left: 15%;">
+            <h2>02. THE AESTHETICS OF ROT</h2>
+            <p>
+                Look closely at a glitch. Look at the jagged artifacts of a corrupted JPEG. Look at code that has broken and spilled its guts across the screen. There is more truth in that chaos than in a cleanly designed, corporate webpage. <br><br>
+                To witness decay is to witness <span class="tremble">transformation</span>. We do not mourn the dead flesh; we marvel at the ecosystem of the maggots. 
+            </p>
+        </div>
+
+        <div class="rule">
+            <h2>03. THE DIGITAL CORPSE</h2>
+            <p>
+                You leave pieces of yourself all over the web. Passwords, abandoned social media accounts, forgotten emails. You are building a digital corpse. Long after your physical heart stops, your ghost will still be pinging servers in <span class="redacted">California and Virginia</span>. Let it rot. Let it become part of the noise.
+            </p>
+        </div>
+
+        <div class="rule" style="text-align: center; margin-top: 100px;">
+            <pre style="font-size: 10px; color: #330000; line-height: 10px;">
+    .---.
+  .'     '.
+ /         \
+|           |
+|           |
+ \         /
+  '.     .'
+    `---`
+  THE VOID
+  WELCOMES
+    YOU
+            </pre>
+        </div>
+    </div>
+
+    <div class="abyss-bottom">
+        <p style="margin-bottom: 20px; font-size: 12px; color: #333;">You have reached the bottom. There is nothing else.</p>
+        <a href="main-site.html">[ CLIMB BACK UP ]</a>
+    </div>
+
+    <!-- SCRIPT FOR THE "FLASHLIGHT" MOUSE EFFECT -->
+    <script>
+        const glow = document.getElementById('glow');
+        
+        document.addEventListener('mousemove', (e) => {
+            // Updates the CSS variables to match the mouse X and Y positions
+            glow.style.setProperty('--x', `${e.clientX}px`);
+            glow.style.setProperty('--y', `${e.clientY}px`);
+        });
+    </script>
+
+</body>
+</html>
