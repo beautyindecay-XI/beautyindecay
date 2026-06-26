@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>† INFEKTION // TERMINAL †</title>
+    <style>
+        /* RESETTING REALITY */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scrollbar-width: thin;
+            scrollbar-color: #550000 #000000;
+        }
+
+        body {
+            background-color: #000;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                #0a0000 2px,
+                #0a0000 4px
+            );
+            color: #5a0000;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+            height: 100vh;
+            cursor: crosshair;
+        }
+
+        /* 1. THE MAIN WOUND (Weird Jagged Shape) */
+        .flesh-wound {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 50%;
+            height: 60%;
+            background: #050000;
+            border: 1px solid #330000;
+            box-shadow: inset 0 0 50px #220000;
+            /* This cuts the div into a bizarre, jagged shape */
+            clip-path: polygon(5% 0%, 95% 10%, 100% 80%, 85% 100%, 10% 90%, 0% 30%);
+            padding: 40px;
+            overflow: auto;
+            z-index: 2;
+        }
+
+        .flesh-wound h1 {
+            color: #ff0000;
+            font-size: 24px;
+            letter-spacing: -2px;
+            text-transform: lowercase;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 0px #330000;
+        }
+
+        .flesh-wound p {
+            font-size: 12px;
+            line-height: 1.1;
+            color: #888;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        /* 2. THE CREEPY SCROLLING SIDEBAR */
+        .marquee-container {
+            position: absolute;
+            right: 5%;
+            top: 0;
+            width: 15%;
+            height: 100vh;
+            border-left: 1px dashed #ff0000;
+            border-right: 1px dashed #ff0000;
+            background: rgba(10, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        marquee {
+            height: 100%;
+            color: #440000;
+            font-size: 10px;
+            line-height: 1.5;
+            letter-spacing: 2px;
+        }
+
+        /* 3. SCATTERED FLOATING FRAGMENTS */
+        .fragment {
+            position: absolute;
+            border: 1px solid #222;
+            background: #020202;
+            padding: 10px;
+            font-size: 10px;
+            z-index: 3;
+            transition: all 0.2s;
+        }
+
+        .fragment:hover {
+            background: #ff0000;
+            color: #000;
+            border-color: #fff;
+            transform: scale(1.1) rotate(-2deg);
+        }
+
+        #frag-1 { top: 5%; left: 5%; transform: rotate(-5deg); }
+        #frag-2 { bottom: 10%; left: 15%; transform: rotate(3deg); border-color: #550000; }
+        #frag-3 { bottom: 15%; right: 25%; width: 200px; text-align: center; }
+
+        /* 4. BROKEN IMAGES & LINKS */
+        a {
+            color: #ff0000;
+            text-decoration: none;
+            background: #110000;
+            padding: 2px;
+        }
+
+        a:hover {
+            background: #ff0000;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .glitch-text {
+            animation: glitch 0.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); color: #fff; }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); color: #ff0000; }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* 5. OVERLAY STATIC */
+        .static {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="static"></div>
+
+    <!-- FLOATING FRAGMENTS (Asymmetrical Navigation) -->
+    <div class="fragment" id="frag-1">
+        [ <a href="#">AUTOPSY.LOG</a> ]<br>
+        [ <a href="#">Z_CLUSTER</a> ]<br>
+        [ <a href="index.html">ABORT</a> ]
+    </div>
+
+    <div class="fragment" id="frag-2">
+        ERROR_0x99:<br>
+        FLESH_NOT_FOUND
+    </div>
+
+    <div class="fragment" id="frag-3">
+        <pre style="font-size: 8px; color: #555;">
+  /\  
+ /  \ 
+|    |
+|    |
+ \  / 
+  \/  
+        </pre>
+        the temple is empty
+    </div>
+
+    <!-- THE WEIRD SHAPED MAIN CONTENT -->
+    <div class="flesh-wound">
+        <h1>t h e _ b o d y _ i s _ a _ t r a p .</h1>
+        <p>
+            Welcome to the terminal. The architecture here is rotting. We built this place out of discarded data and dead nerves. There is no clean geometry in nature. Why should there be clean geometry on the web?
+        </p>
+        <p style="color: #ff0000; font-size: 14px; margin: 20px 0;">
+            > > > <span class="glitch-text">DO NOT LOOK BEHIND THE DIV</span> < < <
+        </p>
+        <p>
+            We are compiling a history of entropy. Everything you click here will eventually lead to a dead end. Like a tumor, the code expands without purpose.
+            Read the <a href="#">manifesto</a>. Or don't. It won't save you from the inevitable decay of your own hardware. 
+        </p>
+        <br>
+        <p style="text-align: center; color: #330000;">
+            † I N F E K T †
+        </p>
+    </div>
+
+    <!-- THE CLAUSTROPHOBIC MARQUEE -->
+    <div class="marquee-container">
+        <marquee direction="up" scrollamount="2" scrolldelay="50">
+            flesh rots<br><br>
+            code remains<br><br>
+            circuitry is bone<br><br>
+            wires are veins<br><br>
+            nothing is saved<br><br>
+            <span style="color:#ff0000">delete your history</span><br><br>
+            flesh rots<br><br>
+            code remains<br><br>
+            circuitry is bone<br><br>
+            wires are veins<br><br>
+            nothing is saved<br><br>
+            <span style="color:#ff0000">delete your history</span><br><br>
+        </marquee>
+    </div>
+
+    <!-- HIDDEN SCRIPT FOR EXTRA CREEPINESS -->
+    <script>
+        // Randomly twitches the main "wound" div to make the page feel alive
+        const wound = document.querySelector('.flesh-wound');
+        setInterval(() => {
+            const randomX = Math.random() * 4 - 2;
+            const randomY = Math.random() * 4 - 2;
+            wound.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }, 3000);
+    </script>
+
+</body>
+</html>
