@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0x99</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden; /* Traps the user, no scrolling allowed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .skull-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            /* This animation makes the entire image vibrate violently */
+            animation: twitch 0.1s infinite;
+        }
+
+        .skull {
+            /* STRETCHING THE IMAGE UNNATURALLY */
+            width: 150vw; 
+            height: 100vh;
+            object-fit: fill; 
+            margin-left: -25vw; /* Centers the stretched mess */
+            
+            /* Turning a normal medical skull into a rotting red nightmare */
+            filter: invert(1) contrast(300%) sepia(100%) hue-rotate(310deg) saturate(700%) brightness(0.6);
+            opacity: 0.9;
+            pointer-events: none;
+        }
+
+        /* Intense TV Static Overlay */
+        .static {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="5" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+            opacity: 0.2;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+
+        /* A barely visible escape hatch */
+        .escape {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            color: #050000;
+            font-family: 'Courier New', Courier, monospace;
+            text-decoration: none;
+            font-size: 10px;
+            z-index: 10;
+            transition: 0.3s;
+        }
+
+        .escape:hover {
+            color: #ff0000;
+            text-shadow: 0 0 10px red;
+        }
+
+        @keyframes twitch {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(-3px, 2px); }
+            40% { transform: translate(3px, -2px); }
+            60% { transform: translate(-3px, -2px); }
+            80% { transform: translate(3px, 2px); }
+            100% { transform: translate(0, 0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="skull-container">
+        <!-- Using a public domain medical skull, which CSS turns terrifying -->
+        <img class="skull" src="https://upload.wikimedia.org/wikipedia/commons/4/41/Human_skull_front_bones.jpg" alt="FLESH NOT FOUND">
+        <div class="static"></div>
+    </div>
+    
+    <!-- Hidden link back to the main site -->
+    <a href="main-site.html" class="escape">abort</a>
+
+</body>
+</html>
